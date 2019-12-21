@@ -10,22 +10,35 @@ public class Movement : MonoBehaviour
     public Animator animator;
 
     [SerializeField]
-    float speed = 5f;
-    // Start is called before the first frame update
+    public float speed = 10.0f;
+    private float translation;
+    private float straffe;
+
+    bool shouldLockCursor = false;
+    // Use this for initialization
     void Start()
     {
-        
+        // turn off the cursor
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame
     void Update()
     {
-        var move = new Vector3(0, 0, Input.GetAxis("Vertical"));
-        transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y + Input.GetAxis("Horizontal"), 0);
+        // Input.GetAxis() is used to get the user's input
+        // You can furthor set it on Unity. (Edit, Project Settings, Input)
+        translation = Input.GetAxis("Vertical") * speed * Time.deltaTime;
+        straffe = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
+        transform.Translate(straffe, 0, translation);
+        animator.SetFloat("speed", Mathf.Abs(Input.GetAxis("Horizontal")) + Mathf.Abs(Input.GetAxis("Vertical")));
+        if (Input.GetKeyDown("escape"))
+        {
+            if (shouldLockCursor)
+                Cursor.lockState = CursorLockMode.None;
+            else
+                Cursor.lockState = CursorLockMode.Locked;
 
-       // transform.position += move * speed * Time.deltaTime;
-        transform.Translate(move * speed * Time.deltaTime, Space.Self);
-        animator.SetFloat("speed",Mathf.Abs(Input.GetAxis("Horizontal")) + Mathf.Abs(Input.GetAxis("Vertical")));
-       
+            shouldLockCursor = !shouldLockCursor;
+        }
     }
 }
