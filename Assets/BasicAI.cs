@@ -7,7 +7,9 @@ public class BasicAI : MonoBehaviour
 
     [SerializeField]
     GameObject player=null;
-    float speed=1f;
+
+    [SerializeField]
+    float speed =1f;
 
    public float timeSinceShine = 0;
     // Start is called before the first frame update
