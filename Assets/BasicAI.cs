@@ -10,12 +10,17 @@ public class BasicAI : MonoBehaviour
 
     [SerializeField]
     float speed =1f;
+    [SerializeField]
+    float shineTimer =0;
 
-   public float timeSinceShine = 0;
+    [SerializeField]
+    bool isNegativeStatue = false;
+
+    public float timeSinceShine = 0;
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (shineTimer == 0) shineTimer = 10f * Random.value;
     }
 
     // Update is called once per frame
@@ -23,13 +28,16 @@ public class BasicAI : MonoBehaviour
     {
         timeSinceShine += Time.deltaTime;
 
-        if (timeSinceShine < 5) return;
+        if (!isNegativeStatue && timeSinceShine < shineTimer) return;
+        if (isNegativeStatue && timeSinceShine > 0.4f) return;
         var heading = player.transform.position - this.transform.position;
         heading.y = 0;
         var distance = heading.magnitude;
         var direction = heading / distance; // This is now the normalized direction.
-
-        transform.Translate(heading.normalized * speed * Time.deltaTime);
+       
+        transform.forward = new Vector3(direction.x, direction.y, direction.z);
+        transform.Translate(Vector3.forward* Time.deltaTime*speed);
+        
 
         /*if (heading.sqrMagnitude < maxRange * maxRange)
         {

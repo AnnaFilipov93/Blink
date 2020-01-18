@@ -11,6 +11,9 @@ public class FlashlightBatteries : MonoBehaviour
     [SerializeField]
     float time_fraction = 0.1f;
 
+    [SerializeField]
+    GameObject flashlight=null;
+
     void Start()
     {
         
@@ -21,6 +24,10 @@ public class FlashlightBatteries : MonoBehaviour
     {
         charge -= Time.deltaTime * time_fraction;
         GetComponent<Text>().text = ((int)charge) + "% Battery";
+
+        if (charge < 1) {
+            flashlight.SetActive(false);
+        }
     }
 
     public void addCharge(float amount) {
