@@ -154,8 +154,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 62.499992, y: 0}
-  m_SizeDelta: {x: 525, y: 345.29617}
+  m_AnchoredPosition: {x: 74.99999, y: 0}
+  m_SizeDelta: {x: 550, y: 345.29617}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &185858014
 MonoBehaviour:
@@ -188,7 +188,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: There was darkness
+  m_Text: Until the next time
 --- !u!222 &185858015
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -521,8 +521,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -62.499985, y: 0}
-  m_SizeDelta: {x: 525, y: 345.29617}
+  m_AnchoredPosition: {x: -74.999985, y: 0}
+  m_SizeDelta: {x: 550, y: 345.29617}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1293657086
 MonoBehaviour:
@@ -555,7 +555,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: And at the end
+  m_Text: And they all disapeared
 --- !u!222 &1293657087
 CanvasRenderer:
   m_ObjectHideFlags: 0

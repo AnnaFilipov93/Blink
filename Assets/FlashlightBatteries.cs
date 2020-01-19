@@ -23,10 +23,15 @@ public class FlashlightBatteries : MonoBehaviour
     void Update()
     {
         charge -= Time.deltaTime * time_fraction;
+        charge = Mathf.Max(charge, 0);
         GetComponent<Text>().text = ((int)charge) + "% Battery";
 
-        if (charge < 1) {
+        if (charge-5*Random.value < 1)
+        {
             flashlight.SetActive(false);
+        }
+        else {
+            flashlight.SetActive(true);
         }
     }
 
